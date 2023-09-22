@@ -15,7 +15,8 @@ class AuthWidget extends StatelessWidget {
           FilledButton.tonal(
               onPressed: () => Navigator.of(context)
                   .pushReplacementNamed(MainNavigationRouteNames.mainScreen),
-              child: const Text('Авторизоваться'))
+              child: Text('Авторизоваться',
+                  style: Theme.of(context).textTheme.labelLarge))
         ],
       ),
     ));
