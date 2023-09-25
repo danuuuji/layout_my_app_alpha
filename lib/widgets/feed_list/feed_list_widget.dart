@@ -60,16 +60,16 @@ class FeedListWidget extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: _posts.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-            child: Ink(
+    return Padding(
+      padding: const EdgeInsets.only(top: 100),
+      child: ListView.builder(
+          itemCount: _posts.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Ink(
               decoration: BoxDecoration(
                   color: Colors.white,
                   border: Border.all(color: Colors.black.withOpacity(0.2)),
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  // borderRadius: BorderRadius.all(Radius.circular(20)),
                   boxShadow: [
                     BoxShadow(
                         blurRadius: 2,
@@ -77,7 +77,7 @@ class FeedListWidget extends StatelessWidget {
                         offset: Offset(2, 2))
                   ]),
               child: InkWell(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
+                // borderRadius: BorderRadius.all(Radius.circular(20)),
                 onTap: () {},
                 child: Padding(
                   padding: EdgeInsets.all(10.0),
@@ -118,8 +118,8 @@ class FeedListWidget extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
-          );
-        });
+            );
+          }),
+    );
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:layout_my_app_alpha/widgets/channel_list/channel_list_widget.dart';
 import 'package:layout_my_app_alpha/widgets/feed_list/feed_list_widget.dart';
+import 'package:layout_my_app_alpha/widgets/organization_list/organization_list_widget.dart';
 
 class MainScreenWidget extends StatefulWidget {
   const MainScreenWidget({super.key});
@@ -10,17 +12,35 @@ class MainScreenWidget extends StatefulWidget {
 
 class _MainScreenWidgetState extends State<MainScreenWidget> {
   int _selectedTab = 0;
+
+  // final List<Widget> _widgetOption = <Widget>[
+  //   FeedListWidget(),
+  //   ChannelListWidget(),
+  //   Text('Организации'),
+  //   Text('Профиль'),
+  // ];
+
   final List<Widget> _widgetOption = <Widget>[
     FeedListWidget(),
-    Text('Каналы'),
-    Text('Организации'),
+    ChannelListWidget(),
+    OrganizationListWidget(),
     Text('Профиль'),
   ];
+
+  final List<String> _titleList = <String>[
+    'Главная',
+    'Каналы',
+    'Организации',
+    'Профиль',
+  ];
+
+  String _title = 'semen loh';
 
   void onSelectTab(int index) {
     if (_selectedTab == index) return;
     setState(() {
       _selectedTab = index;
+      _title = _titleList[index];
     });
   }
 
@@ -31,6 +51,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
       //   title: const Text('Главное меню'),
       //   backgroundColor: AppBarTheme.of(context).backgroundColor,
       // ),
+      appBar: AppBar(title: Text(_title)),
       body: Center(
         child: _widgetOption[_selectedTab],
       ),
